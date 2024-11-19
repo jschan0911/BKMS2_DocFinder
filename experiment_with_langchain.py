@@ -90,6 +90,20 @@ def compare_answers(dataset, vector_store):
         print(f"Expected Answer: {true_answer}")
         print(f"Predicted Answer: {predicted_answer}")
 
+def save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vectordb_size):
+    dataset_copy = dataset.copy()
+    rag_results = []
+
+    for query in dataset["question"]:
+        predicted_answer = generate_answer(query, vector_store)
+        rag_results.append(predicted_answer)
+
+    dataset_copy["result"] = rag_results
+    output_file = f"./data/c{chunk_size}_o{overlap_size}_{int(vectordb_size / (1024 * 1024))}MB_dataset.csv"
+    output_file = f"./data/c{chunk_size}_o{overlap_size}_dataset.csv"
+    dataset_copy.to_csv(output_file, index=False)
+    print(f"Saved results to {output_file}")
+
 # 디렉토리의 전체 크기를 계산하는 함수
 def get_directory_size(directory):
     total_size = 0
@@ -115,14 +129,12 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
             split_docs = split_documents(documents, chunk_size, overlap_size)
             # 벡터 저장소 생성
             vector_store, temp_dir = create_vector_store(split_docs, embedding_model)
-            # # 정확도 계산
-            # accuracy = calculate_accuracy(dataset, vector_store)
-            # print(f"Accuracy: {accuracy:.2f}")
-            
-            # 예상 답안과 비교 출력
-            compare_answers(dataset, vector_store)
-             # 청크와 중첩 크기에 따른 vectordb 저장소 크기 출력
+            # 청크와 중첩 크기에 따른 vectordb 저장소 크기 출력
             vectordb_size = get_directory_size(temp_dir)
+            # RAG 결과 저장
+            save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vectordb_size)
+            # 예상 답안과 비교 출력
+            # compare_answers(dataset, vector_store)
             print(f"VectorDB Storage Size: {vectordb_size / (1024 * 1024):.2f} MB")
             # 임시 폴더 삭제
             shutil.rmtree(temp_dir)
