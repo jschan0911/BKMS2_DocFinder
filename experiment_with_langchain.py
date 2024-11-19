@@ -14,7 +14,10 @@ import tempfile
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def load_dataset(file_path):
-    return pd.read_csv(file_path)
+    if file_path.endswith('.xlsx'): # 파일 확장자에 따라 다른 방식으로 데이터셋 로드
+        return pd.read_excel(file_path)
+    else:
+        return pd.read_csv(file_path)
 
 # data 폴더 아래에 있는 모든 텍스트 파일을 로드하는 함수
 def load_all_text_documents(folder_path):
@@ -99,9 +102,12 @@ def save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vecto
         rag_results.append(predicted_answer)
 
     dataset_copy["result"] = rag_results
-    output_file = f"./data/c{chunk_size}_o{overlap_size}_{int(vectordb_size / (1024 * 1024))}MB_dataset.csv"
-    output_file = f"./data/c{chunk_size}_o{overlap_size}_dataset.csv"
-    dataset_copy.to_csv(output_file, index=False)
+
+    # output_file = f"./data_txt/c{chunk_size}_o{overlap_size}_{int(vectordb_size / (1024 * 1024))}MB_dataset.csv"
+    # dataset_copy.to_csv(output_file, index=False) # csv로 저장
+    
+    output_file = f"./data_txt/c{chunk_size}_o{overlap_size}_{int(vectordb_size / (1024 * 1024))}MB_dataset.xlsx"
+    dataset_copy.to_excel(output_file, index=False, engine='openpyxl')  # xlsx로 저장
     print(f"Saved results to {output_file}")
 
 # 디렉토리의 전체 크기를 계산하는 함수
@@ -140,9 +146,13 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
             shutil.rmtree(temp_dir)
 
 # 실험 파라미터 설정
-folder_path = "./data"
-dataset_path = "./data/dataset.csv"
-chunk_sizes = [300, 500]  # 실험할 청크 크기
-overlap_sizes = [50, 100]  # 실험할 중첩 크기
+
+# folder_path = "./data"    # 테스트 파일 경로
+# dataset_path = "./data_txt/dataset.csv"  # 테스트 데이터셋 경로
+
+folder_path = "./data_txt"  # 실험 파일 경로
+dataset_path = "./data_txt/dataset.xlsx"  # 실험 데이터셋 경로
+chunk_sizes = [500]  # 실험할 청크 크기
+overlap_sizes = [50]  # 실험할 중첩 크기
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
