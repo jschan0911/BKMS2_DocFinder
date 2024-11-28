@@ -54,7 +54,7 @@ def create_vector_store(documents, embedding_model, chunk_size, overlap_size):
 # 쿼리에 대해 벡터 저장소에서 유사한 문서를 검색하고 답변 생성
 def generate_answer(query, vector_store):
     retrieved_docs = vector_store.similarity_search(query, k=5)
-    passages = "\n".join([f"Passage {i} (data_source: {unicodedata.normalize('NFC', doc.metadata['source'])}):\n{doc.page_content}\n" for i, doc in enumerate(retrieved_docs)]) # 출처 깨짐 문제 해결
+    passages = "\n".join([f"Passage {i} (data_source: {os.path.basename(unicodedata.normalize('NFC', doc.metadata['source']))}):{doc.page_content}" for i, doc in enumerate(retrieved_docs)]) # 출처 깨짐 문제 해결
     prompt_template = f"""
 # Question: {query}
 
@@ -125,10 +125,13 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
             save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vectordb_size)
 
 # 실험 파라미터 설정
-folder_path = "./data"    # 테스트 파일 경로
-dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
+# folder_path = "./data"    # 테스트 파일 경로
+# dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
 
-chunk_sizes = [1000]  # 실험할 청크 크기
+folder_path = "./data_txt"
+dataset_path = "./data_txt/dataset.xlsx"
+
+chunk_sizes = [500]  # 실험할 청크 크기
 overlap_sizes = [50]  # 실험할 중첩 크기
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
