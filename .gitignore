@@ -1,5 +1,6 @@
 .env
 myvenv/
 .DS_Store
-vector_stores/
+vector_stores/*
+!vector_stores/.gitkeep
 experiment.log
