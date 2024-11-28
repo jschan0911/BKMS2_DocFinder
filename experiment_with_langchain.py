@@ -6,6 +6,7 @@ from langchain_community.document_loaders import TextLoader
 from sklearn.metrics import f1_score
 import pandas as pd
 import os
+import unicodedata
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
@@ -32,16 +33,20 @@ def split_documents(documents, chunk_size, overlap_size):
 
 # 벡터 저장소를 생성하고 실험 후에도 저장
 def create_vector_store(documents, embedding_model, chunk_size, overlap_size):
-    persist_dir_name = f"vector_store_{embedding_model}_c{chunk_size}_o{overlap_size}"  # 저장소 이름 설정
-    persist_dir_path = os.path.join("./vector_stores", persist_dir_name)  # 저장 경로 설정
-    os.makedirs(persist_dir_path, exist_ok=True)  # 디렉토리 생성
-    vector_store = Chroma.from_documents(documents, OpenAIEmbeddings(model=embedding_model, openai_api_key=OPENAI_API_KEY), persist_directory=persist_dir_path)
+    persist_dir_name = f"vector_store_{embedding_model}_c{chunk_size}_o{overlap_size}"
+    persist_dir_path = os.path.join("./vector_stores", persist_dir_name)
+    if os.path.exists(persist_dir_path):
+        print(f"Vector store already exists at {persist_dir_path}. Skipping embedding.")
+        vector_store = Chroma(persist_directory=persist_dir_path, embedding_function=OpenAIEmbeddings(model=embedding_model, openai_api_key=OPENAI_API_KEY))
+    else:
+        os.makedirs(persist_dir_path, exist_ok=True)
+        vector_store = Chroma.from_documents(documents, OpenAIEmbeddings(model=embedding_model, openai_api_key=OPENAI_API_KEY), persist_directory=persist_dir_path)
     return vector_store, persist_dir_path
 
 # 쿼리에 대해 벡터 저장소에서 유사한 문서를 검색하고 답변 생성
 def generate_answer(query, vector_store):
     retrieved_docs = vector_store.similarity_search(query, k=5)
-    passages = "\n".join([f"Passage {i} (data_source: {doc.metadata['source']}):\n{doc.page_content}\n" for i, doc in enumerate(retrieved_docs)])
+    passages = "\n".join([f"Passage {i} (data_source: {unicodedata.normalize('NFC', doc.metadata['source'])}):\n{doc.page_content}\n" for i, doc in enumerate(retrieved_docs)])
     prompt_template = f"""
 # Question: {query}
 
@@ -109,12 +114,12 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
 
 # 실험 파라미터 설정
 
-# folder_path = "./data"    # 테스트 파일 경로
-# dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
+folder_path = "./data"    # 테스트 파일 경로
+dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
 
-folder_path = "./data_txt"  # 실험 파일 경로
-dataset_path = "./data_txt/dataset.xlsx"  # 실험 데이터셋 경로
-chunk_sizes = [5000]  # 실험할 청크 크기
+# folder_path = "./data_txt"  # 실험 파일 경로
+# dataset_path = "./data_txt/dataset.xlsx"  # 실험 데이터셋 경로
+chunk_sizes = [1000]  # 실험할 청크 크기
 overlap_sizes = [50]  # 실험할 중첩 크기
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
