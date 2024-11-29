@@ -100,7 +100,6 @@ def get_directory_size(directory):
             total_size += os.path.getsize(fp)
     return total_size
 
-# 다양한 청크 크기와 중첩 크기 조합에 따른 실험 수행
 def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedding_model="text-embedding-3-small"):
     # 데이터셋 로드
     logging.info(f"Loading dataset from {dataset_path}")
@@ -113,16 +112,24 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
     # 청크 크기와 중첩 크기의 조합을 반복하여 실험
     for chunk_size in chunk_sizes:
         for overlap_size in overlap_sizes:
-            logging.info(f"\n--- Running experiment with Chunk Size: {chunk_size}, Overlap Size: {overlap_size} ---")
-            # 문서 분할
-            split_docs = split_documents(documents, chunk_size, overlap_size)
-            # 벡터 저장소 생성 및 영구 저장
-            vector_store, persist_dir_path = create_vector_store(split_docs, embedding_model, chunk_size, overlap_size)
-            # 청크와 중첩 크기에 따른 vectordb 저장소 크기 출력
-            vectordb_size = get_directory_size(persist_dir_path)
-            logging.info(f"VectorDB Storage Size: {vectordb_size / (1024 * 1024):.2f} MB for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}")
-            # RAG 결과 저장
-            save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vectordb_size)
+            try:
+                logging.info(f"\n--- Running experiment with Chunk Size: {chunk_size}, Overlap Size: {overlap_size} ---")
+                # 문서 분할
+                split_docs = split_documents(documents, chunk_size, overlap_size)
+                # 벡터 저장소 생성 및 영구 저장
+                vector_store, persist_dir_path = create_vector_store(split_docs, embedding_model, chunk_size, overlap_size)
+                # 청크와 중첩 크기에 따른 vectordb 저장소 크기 출력
+                vectordb_size = get_directory_size(persist_dir_path)
+                logging.info(f"VectorDB Storage Size: {vectordb_size / (1024 * 1024):.2f} MB for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}")
+                # RAG 결과 저장
+                save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vectordb_size)
+            except ValueError as ve:
+                logging.error(f"ValueError occurred for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}: {ve}")
+                continue  # 다음 실험으로 넘어감
+            except Exception as e:
+                logging.error(f"Unexpected error occurred for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}: {e}")
+                continue  # 다음 실험으로 넘어감
+
 
 # 실험 파라미터 설정
 # folder_path = "./data"    # 테스트 파일 경로
@@ -131,7 +138,7 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
 folder_path = "./data_txt"
 dataset_path = "./data_txt/dataset.xlsx"
 
-chunk_sizes = [500]  # 실험할 청크 크기
+chunk_sizes = [200, 300, 400, 500, 600, 700, 800]  # 실험할 청크 크기
 overlap_sizes = [50]  # 실험할 중첩 크기
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
