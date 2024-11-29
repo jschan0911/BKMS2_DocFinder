@@ -61,8 +61,11 @@ def generate_answer(query, vector_store):
 # Relevant Passages:
 {passages}
 
-# Based on the passages above, generate an answer to the question. Explicitly mention the 'data_source'.
-ex) (출처: gsds_notification.pdf)
+# You are tasked to answer questions based on specific provided passages. For each query:
+
+Generate a one-sentence, concise response directly addressing the question.
+Cite only one source with the highest similarity or relevance to the query using the format: '(출처: source_name.pdf)'.
+Ensure the answer is precise, does not elaborate beyond what is asked, and is always backed by the source.
 """
     try:
         llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, openai_api_key=OPENAI_API_KEY)
