@@ -54,7 +54,9 @@ def create_vector_store(documents, embedding_model, chunk_size, overlap_size):
 # 쿼리에 대해 벡터 저장소에서 유사한 문서를 검색하고 답변 생성
 def generate_answer(query, vector_store):
     retrieved_docs = vector_store.similarity_search(query, k=5)
-    passages = "\n".join([f"Passage {i} (data_source: {os.path.basename(unicodedata.normalize('NFC', doc.metadata['source']))}):{doc.page_content}" for i, doc in enumerate(retrieved_docs)]) # 출처 깨짐 문제 해결
+    passages = "\n".join([f"Passage {i}: {doc.page_content}" for i, doc in enumerate(retrieved_docs)])  # 출처 제거
+    sources = [os.path.basename(unicodedata.normalize('NFC', doc.metadata['source'])).replace('.txt', '') for doc in retrieved_docs]  # 확장자 제거
+
     prompt_template = f"""
 # Question: {query}
 
@@ -64,31 +66,33 @@ def generate_answer(query, vector_store):
 # You are tasked to answer questions based on specific provided passages. For each query:
 
 Generate a one-sentence, concise response directly addressing the question.
-Cite only one source with the highest similarity or relevance to the query using the format: '(출처: source_name.pdf)'.
-Ensure the answer is precise, does not elaborate beyond what is asked, and is always backed by the source.
+Ensure the answer is precise, does not elaborate beyond what is asked, and is always backed by the passages provided.
 """
     try:
         llm = ChatOpenAI(model="gpt-4o-mini", temperature=0, openai_api_key=OPENAI_API_KEY)
         prompt = PromptTemplate(template=prompt_template, input_variables=["query", "passages"])
         chain = prompt | llm
         response = chain.invoke({"query": query, "passages": passages})
-        return response.content
+        return response.content, sources[0] if sources else None
     except Exception as e:
         logging.error(f"Error generating answer: {e}")
-        return None
+        return None, None
 
 def save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vectordb_size):
     dataset_copy = dataset.copy()
     rag_results = []
+    sources_list = []
 
     start_time = time.time()
     for query in dataset["question"]:
-        predicted_answer = generate_answer(query, vector_store)
+        predicted_answer, source = generate_answer(query, vector_store)
         rag_results.append(predicted_answer)
+        sources_list.append(source)
     total_time = time.time() - start_time
     logging.info(f"Total time to generate all answers: {total_time:.2f} seconds for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}")
 
     dataset_copy["result"] = rag_results
+    dataset_copy["source"] = sources_list  # 출처 추가
     
     output_file = f"./results/c{chunk_size}_o{overlap_size}_{int(vectordb_size / (1024 * 1024))}MB_dataset.csv"
     dataset_copy.to_csv(output_file, index=False, encoding='utf-8-sig')  # CSV로 저장, 한글 깨짐 방지
@@ -135,13 +139,13 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
 
 
 # 실험 파라미터 설정
-# folder_path = "./data"    # 테스트 파일 경로
-# dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
+folder_path = "./data"    # 테스트 파일 경로
+dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
 
-folder_path = "./data_txt"
-dataset_path = "./data_txt/dataset.xlsx"
+# folder_path = "./data_txt"
+# dataset_path = "./data_txt/dataset.xlsx"
 
-chunk_sizes = [200, 300, 400, 500, 600, 700, 800]  # 실험할 청크 크기
+chunk_sizes = [650]  # 실험할 청크 크기
 overlap_sizes = [50]  # 실험할 중첩 크기
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
