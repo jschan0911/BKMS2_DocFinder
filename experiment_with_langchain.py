@@ -149,13 +149,16 @@ def run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes, embedd
 
 
 # 실험 파라미터 설정
-folder_path = "./data"    # 테스트 파일 경로
-dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
+# folder_path = "./data"    # 테스트 파일 경로
+# dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
 
-# folder_path = "./data_txt"
-# dataset_path = "./data_txt/dataset.xlsx"
+folder_path = "./data_txt"
+dataset_path = "./data_txt/dataset.xlsx"
 
-chunk_sizes = [750]  # 실험할 청크 크기
-overlap_sizes = [50]  # 실험할 중첩 크기
+# 실험할 청크 크기
+chunk_sizes = list(range(100, 2100, 100))  # 100부터 1000까지 100 단위로 채움
+
+# 실험할 중첩 크기
+overlap_sizes = [50]
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
