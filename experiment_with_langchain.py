@@ -9,6 +9,7 @@ import os
 import unicodedata
 import time
 import logging
+import tiktoken
 
 # 로깅 설정
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='experiment.log', filemode='a')
@@ -48,7 +49,10 @@ def create_vector_store(documents, embedding_model, chunk_size, overlap_size):
         start_time = time.time()
         vector_store = Chroma.from_documents(documents, OpenAIEmbeddings(model=embedding_model, openai_api_key=OPENAI_API_KEY), persist_directory=persist_dir_path)
         embedding_time = time.time() - start_time
-        logging.info(f"Embedding completed in {embedding_time:.2f} seconds for chunk size {chunk_size} and overlap size {overlap_size}.")
+
+        # 특정 모델을 사용했을 때의 총 토큰 수 계산
+        total_tokens = sum([len(tiktoken.encoding_for_model("text-embedding-3-small").encode(doc.page_content)) for doc in documents])
+        logging.info(f"Embedding completed in {embedding_time:.2f} seconds for chunk size {chunk_size} and overlap size {overlap_size}. Total tokens embedded: {total_tokens}")
     return vector_store, persist_dir_path
 
 # 쿼리에 대해 벡터 저장소에서 유사한 문서를 검색하고 답변 생성
@@ -73,7 +77,10 @@ Ensure the answer is precise, does not elaborate beyond what is asked, and is al
         prompt = PromptTemplate(template=prompt_template, input_variables=["query", "passages"])
         chain = prompt | llm
         response = chain.invoke({"query": query, "passages": passages})
-        return response.content, sources[0] if sources else None
+
+        # 특정 모델을 사용했을 때의 총 토큰 수 계산
+        tokens_used = len(tiktoken.encoding_for_model("gpt-4o-mini").encode(query)) + len(tiktoken.encoding_for_model("gpt-4o-mini").encode(passages)) + len(tiktoken.encoding_for_model("gpt-4o-mini").encode(response.content))
+        return response.content, sources[0] if sources else None, tokens_used
     except Exception as e:
         logging.error(f"Error generating answer: {e}")
         return None, None
@@ -82,14 +89,17 @@ def save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vecto
     dataset_copy = dataset.copy()
     rag_results = []
     sources_list = []
+    total_tokens_used = 0
 
     start_time = time.time()
     for query in dataset["question"]:
-        predicted_answer, source = generate_answer(query, vector_store)
+        predicted_answer, source, tokens_used = generate_answer(query, vector_store)
         rag_results.append(predicted_answer)
         sources_list.append(source)
+        total_tokens_used += tokens_used
     total_time = time.time() - start_time
-    logging.info(f"Total time to generate all answers: {total_time:.2f} seconds for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}")
+    logging.info(f"Total time to generate all answers: {total_time:.2f} seconds for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}, Total tokens used for generating response: {total_tokens_used}")
+
 
     dataset_copy["result"] = rag_results
     dataset_copy["source"] = sources_list  # 출처 추가
@@ -145,7 +155,7 @@ dataset_path = "./data/dataset.csv"  # 테스트 데이터셋 경로
 # folder_path = "./data_txt"
 # dataset_path = "./data_txt/dataset.xlsx"
 
-chunk_sizes = [650]  # 실험할 청크 크기
+chunk_sizes = [750]  # 실험할 청크 크기
 overlap_sizes = [50]  # 실험할 중첩 크기
 
 run_experiment(folder_path, dataset_path, chunk_sizes, overlap_sizes)
