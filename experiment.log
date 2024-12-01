@@ -2039,3 +2039,348 @@
 2024-11-30 12:31:36,178 - INFO - Retrying request to /embeddings in 0.929191 seconds
 2024-11-30 12:31:38,942 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
 2024-11-30 12:31:38,944 - ERROR - Unexpected error occurred for Chunk Size: 2000, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1306640. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-11-30 13:17:32,563 - INFO - Loading dataset from ./data_txt/dataset.xlsx
+2024-11-30 13:17:32,653 - INFO - Loading all text documents from folder ./data_txt
+2024-11-30 13:17:32,693 - INFO - 
+--- Running experiment with Chunk Size: 1200, Overlap Size: 50 ---
+2024-11-30 13:17:32,737 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 13:17:38,035 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:17:38,036 - INFO - Retrying request to /embeddings in 0.477396 seconds
+2024-11-30 13:17:40,591 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:17:40,592 - INFO - Retrying request to /embeddings in 0.955069 seconds
+2024-11-30 13:17:43,277 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:17:43,283 - ERROR - Unexpected error occurred for Chunk Size: 1200, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1041670. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-11-30 13:17:43,307 - INFO - 
+--- Running experiment with Chunk Size: 1300, Overlap Size: 50 ---
+2024-11-30 13:17:43,353 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 13:17:49,090 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:17:49,090 - INFO - Retrying request to /embeddings in 0.445149 seconds
+2024-11-30 13:17:51,632 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:17:51,633 - INFO - Retrying request to /embeddings in 0.833239 seconds
+2024-11-30 13:17:54,519 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:17:54,520 - ERROR - Unexpected error occurred for Chunk Size: 1300, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1117057. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-11-30 13:17:54,538 - INFO - 
+--- Running experiment with Chunk Size: 1400, Overlap Size: 50 ---
+2024-11-30 13:17:54,630 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 13:18:00,325 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 13:18:00,327 - INFO - Retrying request to /embeddings in 0.476096 seconds
+2024-11-30 15:25:29,662 - INFO - Loading dataset from ./data_txt/dataset.xlsx
+2024-11-30 15:25:29,731 - INFO - Loading all text documents from folder ./data_txt
+2024-11-30 15:25:29,773 - INFO - 
+--- Running experiment with Chunk Size: 1200, Overlap Size: 50 ---
+2024-11-30 15:25:29,818 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 15:25:36,283 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:25:36,285 - INFO - Retrying request to /embeddings in 0.393296 seconds
+2024-11-30 15:25:40,818 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:25:40,819 - INFO - Retrying request to /embeddings in 0.976655 seconds
+2024-11-30 15:25:45,577 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:25:45,584 - ERROR - Unexpected error occurred for Chunk Size: 1200, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1041670. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-11-30 15:25:45,608 - INFO - 
+--- Running experiment with Chunk Size: 1300, Overlap Size: 50 ---
+2024-11-30 15:25:45,653 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 15:43:15,639 - INFO - Loading dataset from ./data_txt/dataset.xlsx
+2024-11-30 15:43:15,683 - INFO - Loading all text documents from folder ./data_txt
+2024-11-30 15:43:15,698 - INFO - 
+--- Running experiment with Chunk Size: 1200, Overlap Size: 50 ---
+2024-11-30 15:43:15,738 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 15:43:21,845 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:43:21,845 - INFO - Retrying request to /embeddings in 0.497066 seconds
+2024-11-30 15:43:25,120 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:43:25,120 - INFO - Retrying request to /embeddings in 0.868477 seconds
+2024-11-30 15:43:29,115 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:43:29,121 - ERROR - Unexpected error occurred for Chunk Size: 1200, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1041670. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-11-30 15:43:29,145 - INFO - 
+--- Running experiment with Chunk Size: 1300, Overlap Size: 50 ---
+2024-11-30 15:43:29,191 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-11-30 15:43:34,238 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-11-30 15:43:34,239 - INFO - Retrying request to /embeddings in 0.399885 seconds
+2024-12-01 09:16:00,527 - INFO - Loading dataset from ./data_txt/dataset.xlsx
+2024-12-01 09:16:00,572 - INFO - Loading all text documents from folder ./data_txt
+2024-12-01 09:16:00,585 - INFO - 
+--- Running experiment with Chunk Size: 1200, Overlap Size: 50 ---
+2024-12-01 09:16:00,625 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:16:06,154 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:06,155 - INFO - Retrying request to /embeddings in 0.404238 seconds
+2024-12-01 09:16:09,009 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:09,010 - INFO - Retrying request to /embeddings in 0.910251 seconds
+2024-12-01 09:16:11,978 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:11,986 - ERROR - Unexpected error occurred for Chunk Size: 1200, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1041670. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:16:12,009 - INFO - 
+--- Running experiment with Chunk Size: 1300, Overlap Size: 50 ---
+2024-12-01 09:16:12,050 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:16:16,795 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:16,796 - INFO - Retrying request to /embeddings in 0.420698 seconds
+2024-12-01 09:16:20,530 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:20,531 - INFO - Retrying request to /embeddings in 0.970172 seconds
+2024-12-01 09:16:24,266 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:24,268 - ERROR - Unexpected error occurred for Chunk Size: 1300, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1117057. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:16:24,287 - INFO - 
+--- Running experiment with Chunk Size: 1400, Overlap Size: 50 ---
+2024-12-01 09:16:24,379 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:16:29,441 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:29,442 - INFO - Retrying request to /embeddings in 0.476600 seconds
+2024-12-01 09:16:33,523 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:33,524 - INFO - Retrying request to /embeddings in 0.986344 seconds
+2024-12-01 09:16:36,811 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:36,812 - ERROR - Unexpected error occurred for Chunk Size: 1400, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1189194. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:16:36,831 - INFO - 
+--- Running experiment with Chunk Size: 1500, Overlap Size: 50 ---
+2024-12-01 09:16:36,878 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:16:42,409 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:42,411 - INFO - Retrying request to /embeddings in 0.429078 seconds
+2024-12-01 09:16:45,668 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:45,669 - INFO - Retrying request to /embeddings in 0.759281 seconds
+2024-12-01 09:16:48,808 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:48,810 - ERROR - Unexpected error occurred for Chunk Size: 1500, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1269661. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:16:48,828 - INFO - 
+--- Running experiment with Chunk Size: 1600, Overlap Size: 50 ---
+2024-12-01 09:16:48,875 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:16:54,464 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:54,465 - INFO - Retrying request to /embeddings in 0.382301 seconds
+2024-12-01 09:16:58,242 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:16:58,244 - INFO - Retrying request to /embeddings in 0.992351 seconds
+2024-12-01 09:17:01,334 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:01,335 - ERROR - Unexpected error occurred for Chunk Size: 1600, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1312319. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:17:01,354 - INFO - 
+--- Running experiment with Chunk Size: 1700, Overlap Size: 50 ---
+2024-12-01 09:17:01,405 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:17:07,871 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:07,872 - INFO - Retrying request to /embeddings in 0.469241 seconds
+2024-12-01 09:17:10,488 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:10,489 - INFO - Retrying request to /embeddings in 0.937031 seconds
+2024-12-01 09:17:14,032 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:14,034 - ERROR - Unexpected error occurred for Chunk Size: 1700, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1310249. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:17:14,054 - INFO - 
+--- Running experiment with Chunk Size: 1800, Overlap Size: 50 ---
+2024-12-01 09:17:14,101 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:17:19,869 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:19,870 - INFO - Retrying request to /embeddings in 0.403877 seconds
+2024-12-01 09:17:23,091 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:23,092 - INFO - Retrying request to /embeddings in 0.918470 seconds
+2024-12-01 09:17:26,650 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:26,651 - ERROR - Unexpected error occurred for Chunk Size: 1800, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1308803. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:17:26,665 - INFO - 
+--- Running experiment with Chunk Size: 1900, Overlap Size: 50 ---
+2024-12-01 09:17:26,713 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:17:32,050 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:32,051 - INFO - Retrying request to /embeddings in 0.491973 seconds
+2024-12-01 09:17:36,427 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:36,428 - INFO - Retrying request to /embeddings in 0.843802 seconds
+2024-12-01 09:17:40,057 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:40,059 - ERROR - Unexpected error occurred for Chunk Size: 1900, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1307398. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:17:40,074 - INFO - 
+--- Running experiment with Chunk Size: 2000, Overlap Size: 50 ---
+2024-12-01 09:17:40,118 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:17:47,053 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:47,054 - INFO - Retrying request to /embeddings in 0.407417 seconds
+2024-12-01 09:17:49,668 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:49,669 - INFO - Retrying request to /embeddings in 0.812983 seconds
+2024-12-01 09:17:53,022 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:17:53,024 - ERROR - Unexpected error occurred for Chunk Size: 2000, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-small in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1306640. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:46:49,734 - INFO - Loading dataset from ./data_txt/dataset.xlsx
+2024-12-01 09:46:49,777 - INFO - Loading all text documents from folder ./data_txt
+2024-12-01 09:46:49,790 - INFO - 
+--- Running experiment with Chunk Size: 1200, Overlap Size: 50 ---
+2024-12-01 09:46:49,829 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:46:55,871 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:46:55,873 - INFO - Retrying request to /embeddings in 0.410772 seconds
+2024-12-01 09:46:59,474 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:46:59,475 - INFO - Retrying request to /embeddings in 0.897401 seconds
+2024-12-01 09:47:02,446 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:02,450 - ERROR - Unexpected error occurred for Chunk Size: 1200, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1041670. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:47:02,469 - INFO - 
+--- Running experiment with Chunk Size: 1300, Overlap Size: 50 ---
+2024-12-01 09:47:02,514 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:47:08,803 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:08,805 - INFO - Retrying request to /embeddings in 0.455460 seconds
+2024-12-01 09:47:11,974 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:11,975 - INFO - Retrying request to /embeddings in 0.814544 seconds
+2024-12-01 09:47:15,047 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:15,047 - ERROR - Unexpected error occurred for Chunk Size: 1300, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1117057. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:47:15,061 - INFO - 
+--- Running experiment with Chunk Size: 1400, Overlap Size: 50 ---
+2024-12-01 09:47:15,150 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:47:21,797 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:21,798 - INFO - Retrying request to /embeddings in 0.471558 seconds
+2024-12-01 09:47:25,084 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:25,085 - INFO - Retrying request to /embeddings in 0.756613 seconds
+2024-12-01 09:47:26,298 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 520 "
+2024-12-01 09:47:26,300 - ERROR - Unexpected error occurred for Chunk Size: 1400, Overlap Size: 50: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+
+
+<title>api.openai.com | 520: Web server is returning an unknown error</title>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/main.css" />
+
+
+</head>
+<body>
+<div id="cf-wrapper">
+    <div id="cf-error-details" class="p-0">
+        <header class="mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8">
+            <h1 class="inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2">
+              <span class="inline-block">Web server is returning an unknown error</span>
+              <span class="code-label">Error code 520</span>
+            </h1>
+            <div>
+               Visit <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_520&utm_campaign=api.openai.com" target="_blank" rel="noopener noreferrer">cloudflare.com</a> for more information.
+            </div>
+            <div class="mt-3">2024-12-01 00:47:26 UTC</div>
+        </header>
+        <div class="my-8 bg-gradient-gray">
+            <div class="w-240 lg:w-full mx-auto">
+                <div class="clearfix md:px-8">
+                  
+<div id="cf-browser-status" class=" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    
+    <span class="cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    
+  </div>
+  <span class="md:block w-full truncate">You</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+    
+    Browser
+    
+  </h3>
+  <span class="leading-1.3 text-2xl text-green-success">Working</span>
+</div>
+
+<div id="cf-cloudflare-status" class=" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_520&utm_campaign=api.openai.com" target="_blank" rel="noopener noreferrer">
+    <span class="cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    </a>
+  </div>
+  <span class="md:block w-full truncate">Seoul</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+    <a href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_520&utm_campaign=api.openai.com" target="_blank" rel="noopener noreferrer">
+    Cloudflare
+    </a>
+  </h3>
+  <span class="leading-1.3 text-2xl text-green-success">Working</span>
+</div>
+
+<div id="cf-host-status" class="cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center">
+  <div class="relative mb-10 md:m-0">
+    
+    <span class="cf-icon-server block md:hidden h-20 bg-center bg-no-repeat"></span>
+    <span class="cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4"></span>
+    
+  </div>
+  <span class="md:block w-full truncate">api.openai.com</span>
+  <h3 class="md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3">
+    
+    Host
+    
+  </h3>
+  <span class="leading-1.3 text-2xl text-red-error">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="w-240 lg:w-full mx-auto mb-8 lg:px-8">
+            <div class="clearfix">
+                <div class="w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed">
+                    <h2 class="text-3xl font-normal leading-1.3 mb-4">What happened?</h2>
+                    <p>There is an unknown connection issue between Cloudflare and the origin web server. As a result, the web page can not be displayed.</p>
+                </div>
+                <div class="w-1/2 md:w-full float-left leading-relaxed">
+                    <h2 class="text-3xl font-normal leading-1.3 mb-4">What can I do?</h2>
+                          <h3 class="text-15 font-semibold mb-2">If you are a visitor of this website:</h3>
+      <p class="mb-6">Please try again in a few minutes.</p>
+
+      <h3 class="text-15 font-semibold mb-2">If you are the owner of this website:</h3>
+      <p><span>There is an issue between Cloudflare's cache and your origin web server. Cloudflare monitors for these errors and automatically investigates the cause. To help support the investigation, you can pull the corresponding error log from your web server and submit it our support team.  Please include the Ray ID (which is at the bottom of this error page).</span> <a rel="noopener noreferrer" href="https://support.cloudflare.com/hc/en-us/articles/200171936-Error-520">Additional troubleshooting resources</a>.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300">
+  <p class="text-13">
+    <span class="cf-footer-item sm:block sm:mb-1">Cloudflare Ray ID: <strong class="font-semibold">8eaf10db3a2fea9e</strong></span>
+    <span class="cf-footer-separator sm:hidden">&bull;</span>
+    <span id="cf-footer-item-ip" class="cf-footer-item hidden sm:block sm:mb-1">
+      Your IP:
+      <button type="button" id="cf-footer-ip-reveal" class="cf-footer-ip-reveal-btn">Click to reveal</button>
+      <span class="hidden" id="cf-footer-ip">175.197.82.167</span>
+      <span class="cf-footer-separator sm:hidden">&bull;</span>
+    </span>
+    <span class="cf-footer-item sm:block sm:mb-1"><span>Performance &amp; security by</span> <a rel="noopener noreferrer" href="https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_520&utm_campaign=api.openai.com" id="brand_link" target="_blank">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById("cf-footer-item-ip"),c=a.getElementById("cf-footer-ip-reveal");b&&"classList"in b&&(b.classList.remove("hidden"),c.addEventListener("click",function(){c.classList.add("hidden");a.getElementById("cf-footer-ip").classList.remove("hidden")}))}var a=document;document.addEventListener&&a.addEventListener("DOMContentLoaded",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+2024-12-01 09:47:26,318 - INFO - 
+--- Running experiment with Chunk Size: 1500, Overlap Size: 50 ---
+2024-12-01 09:47:26,364 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:47:31,130 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:31,131 - INFO - Retrying request to /embeddings in 0.411780 seconds
+2024-12-01 09:47:34,916 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:34,917 - INFO - Retrying request to /embeddings in 0.775592 seconds
+2024-12-01 09:47:37,783 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:37,785 - ERROR - Unexpected error occurred for Chunk Size: 1500, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1269661. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:47:37,803 - INFO - 
+--- Running experiment with Chunk Size: 1600, Overlap Size: 50 ---
+2024-12-01 09:47:37,851 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:47:44,236 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:44,237 - INFO - Retrying request to /embeddings in 0.470205 seconds
+2024-12-01 09:47:48,946 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:48,947 - INFO - Retrying request to /embeddings in 0.877635 seconds
+2024-12-01 09:47:52,734 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:52,736 - ERROR - Unexpected error occurred for Chunk Size: 1600, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1312319. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:47:52,755 - INFO - 
+--- Running experiment with Chunk Size: 1700, Overlap Size: 50 ---
+2024-12-01 09:47:52,804 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:47:58,574 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:47:58,575 - INFO - Retrying request to /embeddings in 0.495768 seconds
+2024-12-01 09:48:02,667 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:02,669 - INFO - Retrying request to /embeddings in 0.775311 seconds
+2024-12-01 09:48:05,375 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:05,377 - ERROR - Unexpected error occurred for Chunk Size: 1700, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1310249. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:48:05,396 - INFO - 
+--- Running experiment with Chunk Size: 1800, Overlap Size: 50 ---
+2024-12-01 09:48:05,443 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:48:11,391 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:11,392 - INFO - Retrying request to /embeddings in 0.466694 seconds
+2024-12-01 09:48:14,885 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:14,886 - INFO - Retrying request to /embeddings in 0.884212 seconds
+2024-12-01 09:48:19,130 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:19,132 - ERROR - Unexpected error occurred for Chunk Size: 1800, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1308803. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:48:19,150 - INFO - 
+--- Running experiment with Chunk Size: 1900, Overlap Size: 50 ---
+2024-12-01 09:48:19,198 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:48:24,891 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:24,892 - INFO - Retrying request to /embeddings in 0.477714 seconds
+2024-12-01 09:48:28,267 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:28,269 - INFO - Retrying request to /embeddings in 0.862282 seconds
+2024-12-01 09:48:32,671 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:32,673 - ERROR - Unexpected error occurred for Chunk Size: 1900, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1307398. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
+2024-12-01 09:48:32,691 - INFO - 
+--- Running experiment with Chunk Size: 2000, Overlap Size: 50 ---
+2024-12-01 09:48:32,738 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-01 09:48:37,691 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:37,692 - INFO - Retrying request to /embeddings in 0.490151 seconds
+2024-12-01 09:48:40,230 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:40,231 - INFO - Retrying request to /embeddings in 0.899424 seconds
+2024-12-01 09:48:44,475 - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 429 Too Many Requests"
+2024-12-01 09:48:44,477 - ERROR - Unexpected error occurred for Chunk Size: 2000, Overlap Size: 50: Error code: 429 - {'error': {'message': 'Request too large for text-embedding-3-large in organization org-V0tbhlwhx3CZUv45frbsL3fJ on tokens per min (TPM): Limit 1000000, Requested 1306640. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.', 'type': 'tokens', 'param': None, 'code': 'rate_limit_exceeded'}}
