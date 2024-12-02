@@ -76,14 +76,14 @@ for file_name in csv_files:
     
     # 처리된 파일 저장 (선택)
     processed_file_path = os.path.join(folder_path, f"processed_{file_name}")
-    data.to_csv(processed_file_path, index=False)
+    data.to_csv(processed_file_path, index=False, encoding='utf-8-sig')
 
 # 요약 결과를 데이터프레임으로 저장
 summary_df = pd.DataFrame(summary_results)
 
 # 결과를 CSV 파일로 저장
 summary_output_path = os.path.join(folder_path, "summary_results.csv")
-summary_df.to_csv(summary_output_path, index=False)
+summary_df.to_csv(summary_output_path, index=False, encoding='utf-8-sig')
 
 # 요약 결과 출력
 print(summary_df)
