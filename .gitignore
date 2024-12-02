@@ -4,3 +4,4 @@ myvenv/
 vector_stores/*
 !vector_stores/.gitkeep
 experiment.log
+graphs/
