@@ -16,15 +16,15 @@ CONTAIN_COUNT = 'Contain Count'
 df_original = pd.read_csv('./data_result_csv/chunk_size_analysis.csv')
 df_splitter = pd.read_csv('./data_result_csv/chunk_size_with_linebreaks.csv')
 
-# 1. 청크 크기에 따른 Vector DB 크기 비교
-plt.figure(figsize=(10, 6))
-plt.plot(df_original[CHUNK_SIZE], df_original[VECTORDB_SIZE], label=VECTORDB_SIZE)
-plt.title("Vector DB Size by Chunk Size")
-plt.xlabel("Chunk Size")
-plt.ylabel("Vector DB Size (MB)")
-plt.legend()
-plt.grid(True)
-plt.savefig('./graphs/vector_db_size_by_chunk_size.png')
+# # 1. 청크 크기에 따른 Vector DB 크기 비교
+# plt.figure(figsize=(10, 6))
+# plt.plot(df_original[CHUNK_SIZE], df_original[VECTORDB_SIZE], label=VECTORDB_SIZE)
+# plt.title("Vector DB Size by Chunk Size")
+# plt.xlabel("Chunk Size")
+# plt.ylabel("Vector DB Size (MB)")
+# plt.legend()
+# plt.grid(True)
+# plt.savefig('./graphs/vector_db_size_by_chunk_size.png')
 
 # # 2. 청크 크기에 따른 임베딩 시간 + 응답 생성 시간 비교
 # #   - 임베딩 시간의 차이는 미미했음
@@ -79,19 +79,19 @@ plt.savefig('./graphs/vector_db_size_by_chunk_size.png')
 
 
 # # 5. 청크 수에 따른 BERT F1, F1, Contain Count 비교
-# #    - 청크 수가 증가할 수록 BERT F1, F1은 증가
-# #    - Contain Count는 청크 수가 증가할 수록 감소
+#    - 청크 수가 증가할 수록 BERT F1, F1은 증가
+#    - Contain Count는 청크 수가 증가할 수록 감소
 
-# plt.figure(figsize=(10, 6))
-# plt.plot(df_original[CHUNK_SIZE], df_original[BERT_F1], label=BERT_F1)
+plt.figure(figsize=(10, 6))
+plt.plot(df_original[CHUNK_SIZE], df_original[BERT_F1], label=BERT_F1)
 # plt.plot(df_original[CHUNK_SIZE], df_original[F1], label=F1)
-# # plt.plot(df_original[CHUNK_SIZE], df_original[CONTAIN_COUNT], label=CONTAIN_COUNT)
-# plt.title("Accuracy by Chunk Size")
-# plt.xlabel("Chunk Size")
-# plt.ylabel("Value")
-# plt.legend()
-# plt.grid(True)
-# # plt.show()
+# plt.plot(df_original[CHUNK_SIZE], df_original[CONTAIN_COUNT]*0.012, label=CONTAIN_COUNT)
+plt.title("Accuracy by Chunk Size")
+plt.xlabel("Chunk Size")
+plt.ylabel("Value")
+plt.legend()
+plt.grid(True)
+plt.show()
 # plt.savefig('./graphs/accuracy_contain_count.png')
 
 # # 6. 줄바꿈을 포함한 청크 수에 따른 BERT F1, F1, Contain Count 비교
