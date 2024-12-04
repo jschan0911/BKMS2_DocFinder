@@ -1,0 +1,2 @@
+﻿파일명,평균_BERT_F1,평균_F1_Score,평균_Cosine_Similarity,Contain_Count
+hybrid_dataset.csv,0.8165161979198455,0.29802046544021527,0.7554523,86

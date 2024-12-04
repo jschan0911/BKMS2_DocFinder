@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # 폴더 경로 (적절히 변경)
-folder_path = "./results/experiment_ver3/"
+folder_path = "./results/experiment_ver4/"
 
 # '파일명'에서 확장자를 제거하는 함수
 def normalize_filename(filename):
@@ -13,6 +13,9 @@ def normalize_filename(filename):
 
 # 폴더 내 CSV 파일 목록을 가져와 정렬
 csv_files = sorted([file for file in os.listdir(folder_path) if file.endswith(".csv")])
+
+# 실험용!!
+csv_files = [file for file in csv_files if file.startswith("hybrid_")]
 
 # 종합 결과를 저장할 리스트
 summary_results = []
@@ -31,6 +34,7 @@ for file_name in csv_files:
     bert_f1s, f1_scores, cosine_similarities = [], [], []
     
     # Contain 여부 계산
+    data['source'] = data['source'].fillna('')  # NaN 값을 빈 문자열로 대체
     data['Contain'] = data.apply(lambda row: 1 if normalize_filename(row['파일명']) in row['source'] else 0, axis=1)
     contain_count = data['Contain'].sum()
     
@@ -86,7 +90,9 @@ for file_name in csv_files:
 summary_df = pd.DataFrame(summary_results)
 
 # 결과를 CSV 파일로 저장
-summary_output_path = os.path.join(folder_path, "summary_results.csv")
+# summary_output_path = os.path.join(folder_path, "summary_results.csv")
+
+summary_output_path = os.path.join(folder_path, "summary_hybrid_results.csv")
 summary_df.to_csv(summary_output_path, index=False, encoding='utf-8-sig')
 
 # 요약 결과 출력

@@ -80,7 +80,7 @@ Ensure the answer is precise, does not elaborate beyond what is asked, and is al
 
         # 특정 모델을 사용했을 때의 총 토큰 수 계산
         tokens_used = len(tiktoken.encoding_for_model("gpt-4o-mini").encode(query)) + len(tiktoken.encoding_for_model("gpt-4o-mini").encode(passages)) + len(tiktoken.encoding_for_model("gpt-4o-mini").encode(response.content))
-        return response.content, sources[0] if sources else None, tokens_used
+        return response.content, sources if sources else None, tokens_used
     except Exception as e:
         logging.error(f"Error generating answer: {e}")
         return None, None
@@ -93,9 +93,9 @@ def save_results_with_rag(dataset, vector_store, chunk_size, overlap_size, vecto
 
     start_time = time.time()
     for query in dataset["question"]:
-        predicted_answer, source, tokens_used = generate_answer(query, vector_store)
+        predicted_answer, sources, tokens_used = generate_answer(query, vector_store)
         rag_results.append(predicted_answer)
-        sources_list.append(source)
+        sources_list.append(", ".join(sources) if sources else "N/A")
         total_tokens_used += tokens_used
     total_time = time.time() - start_time
     logging.info(f"Total time to generate all answers: {total_time:.2f} seconds for Chunk Size: {chunk_size}, Overlap Size: {overlap_size}, Total tokens used for generating response: {total_tokens_used}")
@@ -156,7 +156,7 @@ folder_path = "./data_txt"
 dataset_path = "./data_txt/dataset.xlsx"
 
 # 실험할 청크 크기
-chunk_sizes = list(range(100, 2100, 100))  # 100부터 1000까지 100 단위로 채움
+chunk_sizes = list(range(300, 2100, 100))  # 100부터 1000까지 100 단위로 채움
 
 # 실험할 중첩 크기
 overlap_sizes = [50]
